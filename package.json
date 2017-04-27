@@ -24,6 +24,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "angular": "^1.6.4"
+    "angular": "^1.6.4",
+    "angular-cookies": "^1.6.4"
   }
 }
