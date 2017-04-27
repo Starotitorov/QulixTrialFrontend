@@ -1,7 +1,7 @@
 export default class AuthHttpService {
-    constructor($http, AuthInfoStorageService) {
+    constructor($http, authInfoStorageService) {
         this._http = $http;
-        this._authInfoStorageService = AuthInfoStorageService;
+        this._authInfoStorageService = authInfoStorageService;
     }
 
     get(url, options = {}) {
@@ -29,4 +29,4 @@ export default class AuthHttpService {
     }
 }
 
-AuthHttpService.$inject = ['$http', 'AuthInfoStorageService'];
+AuthHttpService.$inject = ['$http', 'authInfoStorageService'];
