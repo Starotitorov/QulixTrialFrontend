@@ -222,7 +222,58 @@
         }
       }
     } 
-  } 
+  }
+
+  // == FOOTER
+
+  .footer {
+    margin-left: 172px; 
+    font: 12px Arial, sans-serif;
+    color: @gray-light;
+
+    @media (max-width: (@screen-sm-min - 1)) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .navbar {
+      border-bottom: 1px solid #fff;
+      .nav {
+        padding-left: 20px;
+        width: 100%;
+        background-color: @body-bg;
+        @media (max-width: @screen-sm-min) {
+          margin: 0;
+          padding-left: 15px;
+        }
+        > li {
+          @media (max-width: @screen-sm-min) {
+            display: inline-block;
+          }
+          > a {     
+            color: @gray-light;  
+            font: 12px Arial, sans-serif;
+            padding: 16px 6px;
+            .nav-a-style;
+          }
+        }
+      }
+    }
+    .rights {
+      background-color: @body-bg;
+      @media (max-width: @screen-sm-min) {
+        display: none;
+      }
+      img {
+        display: inline-block;
+        margin: 16px 14px 16px 33px;
+      }
+      p {
+        display: inline-block;
+        padding: 16px 0;
+      }
+    }
+  }
    
   // == NAVBAR      
 
@@ -288,6 +339,44 @@
     }
   }
 
+  // == SUBMENU
+
+  .submenu {
+    float: left;
+    width: 171px;
+
+    @media (max-width: (@screen-sm-min - 1)) {
+      display: none;
+    }
+
+    .submenuSection {
+      margin-bottom: 20px;
+      &:first-child {
+        margin-top: 20px;
+      }
+      .submenuCategory {
+        font-family: 'Georgia', serif;
+        margin: 0 0 8px 30px;
+      }
+      .nav {
+        > li {
+          > a {
+            padding: 5px 10px 5px 25px; 
+            border-left: 5px solid @main-bg-color;
+            color: @gray-light;
+            .nav-a-style;
+            &:focus,
+            &:active,
+            &.active {
+              border-left: 5px solid @gray-light;
+              color: @gray-dark;
+            } 
+          }
+        }
+      }
+    }
+  }
+
   // == MAIN 
 
   .main {
@@ -295,42 +384,6 @@
     -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.27);
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.27);
     background-color: @main-bg-color;
-
-    .submenu {
-      float: left;
-      width: 171px;
-
-      @media (max-width: (@screen-sm-min - 1)) {
-        display: none;
-      }
-
-      .submenuSection {
-        margin-bottom: 20px;
-        &:first-child {
-          margin-top: 20px;
-        }
-        .submenuCategory {
-          font-family: 'Georgia', serif;
-          margin: 0 0 8px 30px;
-        }
-        .nav {
-          > li {
-            > a {
-              padding: 5px 10px 5px 25px; 
-              border-left: 5px solid @main-bg-color;
-              color: @gray-light;
-              .nav-a-style;
-              &:focus,
-              &:active,
-              &.active {
-                border-left: 5px solid @gray-light;
-                color: @gray-dark;
-              } 
-            }
-          }
-        }
-      }
-    }
 
     .mainSection {
 
@@ -557,7 +610,7 @@
       }
 
       .controlButtons {
-        margin: 20px auto 30px;
+        padding: 20px 0 30px 0;
         text-align: center;
         .btn-prevNext {
           display: inline-block;
@@ -586,48 +639,6 @@
           }
           &:hover {
             background-color: @body-bg;
-          }
-        }
-      }
-
-      .footer {   
-        font: 12px Arial, sans-serif;
-        color: @gray-light;
-        .navbar {
-          border-bottom: 1px solid #fff;
-          .nav {
-            padding-left: 20px;
-            width: 100%;
-            background-color: @body-bg;
-            @media (max-width: @screen-sm-min) {
-              margin: 0;
-              padding-left: 15px;
-            }
-            > li {
-              @media (max-width: @screen-sm-min) {
-                display: inline-block;
-              }
-              > a {     
-                color: @gray-light;  
-                font: 12px Arial, sans-serif;
-                padding: 16px 6px;
-                .nav-a-style;
-              }
-            }
-          }
-        }
-        .rights {
-          background-color: @body-bg;
-          @media (max-width: @screen-sm-min) {
-            display: none;
-          }
-          img {
-            display: inline-block;
-            margin: 16px 14px 16px 33px;
-          }
-          p {
-            display: inline-block;
-            padding: 16px 0;
           }
         }
       }
