@@ -21,52 +21,55 @@
   <body class="testProject">
     <sign-in-btn></sign-in-btn>
     <div class="wrapper">
+    
+   <!-- HEADER 5bfK5JTI_U9nKMPDQ2FUheHl -->
 
-<!-- HEADER 5bfK5JTI_U9nKMPDQ2FUheHl -->
+      <header class="header" ng-controller="HeaderController as headerCtrl">
 
-      <header class="header">
+          <div class="container">
 
-        <div class="container">
+              <div class="row">
 
-          <div class="row">
+                  <div class="logoBlock">
+                      <a href="index.html"><img src="images/logotype.png" class="logo" title="Logo"><img src="images/logotypeMobile.png" class="logoMobile"></a>
+                      <span>Page title</span>
+                  </div>
 
-            <div class="logoBlock">
-              <a href="index.html"><img src="images/logotype.png" class="logo" title="Logo"><img src="images/logotypeMobile.png" class="logoMobile"></a>
-              <span>Page title</span>
-            </div>
+                  <div class="header-comp pull-right">
 
-            <div class="header-comp pull-right">
+                      <div class="dropdown">    
+                          <a class="dropdown-toggle" class="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" href="#"><span>New York</span><i class="icon-down-open"></i></a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Moscow</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Minsk</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tokio</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Barcelona</a></li>
+                          </ul>
+                      </div>
 
-              <div class="dropdown">          
-                <a class="dropdown-toggle" class="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" href="#"><span>New York</span><i class="icon-down-open"></i></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Moscow</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Minsk</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tokio</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Barcelona</a></li>
-                </ul>
+                      <a href="#" class="btn btn-sm btn-header">
+                          <i class="headerIcon icon-bell"></i>
+                      </a> 
+                      <a href="#" class="btn btn-sm btn-header"> 
+                          <i class="headerIcon icon-mail"></i>
+                      </a> 
+                      <a href="#" class="profile" ng-show="headerCtrl.currentUser">
+                          <span>{{headerCtrl.currentUser.fullName}}</span>
+                          <img ng-src="{{headerCtrl.currentUser.imageUrl}}">
+                      </a>
+                      <a href="#" class="btn btn-xs btn-header">
+                          <i class="headerIcon icon-search"></i>
+                      </a> 
+
+                  </div>
+
               </div>
-
-              <a href="#" class="btn btn-sm btn-header">
-                <i class="headerIcon icon-bell"></i>
-              </a> 
-              <a href="#" class="btn btn-sm btn-header"> 
-               <i class="headerIcon icon-mail"></i>
-              </a> 
-              <a href="#" class="profile"><span>User name</span><img src="images/profilePhoto.png"></a>
-              <a href="#" class="btn btn-xs btn-header">
-                <i class="headerIcon icon-search"></i>
-              </a> 
-
-            </div>
 
           </div>
 
-        </div>
-
       </header>
 
-<!-- END OF HEADER -->
+      <!-- END OF HEADER -->
 
 <!-- NAVBAR -->
 
@@ -78,7 +81,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button> 
+            </button>
           </div>
 
           <div class="collapse navbar-collapse bs-example-navbar-collapse-1">
