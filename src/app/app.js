@@ -5,4 +5,7 @@ import '../styles/app.less';
 import account from './account';
 import auth from './auth';
 
-angular.module('qulixTrialFrontend', [account, auth]);
+import config from './app.config';
+
+angular.module('qulixTrialFrontend', [account, auth])
+    .constant('APP_CONFIG', config);
