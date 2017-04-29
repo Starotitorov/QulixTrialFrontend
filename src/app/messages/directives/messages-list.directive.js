@@ -26,6 +26,10 @@ class MessagesListController {
                 });
             });
     }
+
+    removeMessage(message) {
+        this.messages.splice(this.messages.indexOf(message), 1);
+    }
 }
 
 MessagesListController.$inject = ['messagesService', 'accountService'];

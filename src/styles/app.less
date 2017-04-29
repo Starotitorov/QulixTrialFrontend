@@ -526,19 +526,18 @@
         }
         .media-body {
           .userInfo {
+            margin-bottom: 16px;
+
             > span {
-              display: inline-block;
+              display: block;
               font: 12px Arial, sans-serif;
-              color: @gray-light;
-              &:nth-child(2) {
-                padding: 3px 13px;
-                margin-left: 25px;
-                background-color: @body-bg;
-                border-radius: 5px;
-                @media (max-width: 450px) {
-                  display: none;
-                }
-              }
+              color: @gray-light;                                               
+            }
+            .from {
+              font-size: 15px;
+            }
+            .delete-btn {
+              margin-left: 8px;
             }
             .commentsAndTime {
               text-align: right;
@@ -565,6 +564,8 @@
             }
           }
           .itemName {
+            margin-bottom: 8px;
+            
             .media-heading {
               font: bold 16px Arial, sans-serif;
               color: #4f9cd4;

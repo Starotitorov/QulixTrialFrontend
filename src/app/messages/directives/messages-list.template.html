@@ -37,39 +37,8 @@
             <a href="#" class="btn btn-sm btn-option"><i class="icon-sliders"></i></a>
         </div>
     </div>
-    <div ng-repeat="message in messagesListCtrl.messages">
 
-        <section class="media">
-            <div class="media-left">
-                <a href="#">
-                <img class="media-object" src="images/member1.png" alt="userpic">
-                </a>
-            </div>
-            <div class="media-body">
-                <div class="userInfo clearfix">
-                <span>User name</span>
-                <span class="rank">Pro</span>
-                <div class="commentsAndTime pull-right">
-                    <a href="#"><i class="icon-chat"></i>2</a>
-                    <span><i class="icon-clock"></i><time class="timeago" datetime="2015-06-14T09:24:17Z"></time></span>
-                </div>
-                </div>
-                <div class="itemName">
-                <a href="#" class="media-heading" title="Item title">Item title 1i</a>
-                <span class="status pull-right"></span>
-                </div>
-                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. </p>
-                <div class="tags">
-                <button type="submit" class="btn btn-tag">
-                    <i class="icon-tag"></i>
-                </button>
-                <a href="#"  class="tag" title="tag">tag1</a>
-                <a href="#"  class="tag" title="tag">tag2</a>
-                <a href="#"  class="tag" title="tag">tag3</a>
-                </div>
-            </div>
-        </section>
-    </div>                            
+    <message message="message" on-remove="messagesListCtrl.removeMessage(message)" ng-repeat="message in messagesListCtrl.messages"></message>            
 
     <div class="controlButtons">
         <a href="#" class="btn btn-default btn-prevNext">

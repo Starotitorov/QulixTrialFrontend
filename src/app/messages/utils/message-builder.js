@@ -17,10 +17,14 @@ export default class MessageBuilder {
         const header = _.findWhere(
             this._data.payload.headers,
             {
-                name: capitalizedName 
+                name: capitalizedName
             }
         );
+
         if (header) {
+            if (name === 'date') {
+                header.value = new Date(header.value);
+            }
             this._message.headers[name] = header.value;
         }
         return this;
