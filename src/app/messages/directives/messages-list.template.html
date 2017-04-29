@@ -1,0 +1,81 @@
+<section class="postsContainer">
+    <div class="searchForm row">
+        <div class="col-sm-14">
+            <form name="search" action="#" method="get" class="form-inline form-search pull-left">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="search" placeholder="Search...">
+                    <a href="#" class="btn btn-search">
+                    <i class="icon-search"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="options col-sm-10">
+            <a href="#" title="Add new item" class="newItem" data-toggle="modal" data-target="#myModal"><i class="icon-plus-small"></i><span>New Item</span></a>
+            <!-- Modal window -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Add new item</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label class="modal-label">Item name</label>
+                            <input type="text" class="form-control">
+                            <label class="modal-label">Text</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Modal Window -->
+            <a href="#" class="btn btn-sm btn-option"><i class="icon-sliders"></i></a>
+        </div>
+    </div>
+    <div ng-repeat="message in messagesListCtrl.messages">
+
+        <section class="media">
+            <div class="media-left">
+                <a href="#">
+                <img class="media-object" src="images/member1.png" alt="userpic">
+                </a>
+            </div>
+            <div class="media-body">
+                <div class="userInfo clearfix">
+                <span>User name</span>
+                <span class="rank">Pro</span>
+                <div class="commentsAndTime pull-right">
+                    <a href="#"><i class="icon-chat"></i>2</a>
+                    <span><i class="icon-clock"></i><time class="timeago" datetime="2015-06-14T09:24:17Z"></time></span>
+                </div>
+                </div>
+                <div class="itemName">
+                <a href="#" class="media-heading" title="Item title">Item title 1i</a>
+                <span class="status pull-right"></span>
+                </div>
+                <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. </p>
+                <div class="tags">
+                <button type="submit" class="btn btn-tag">
+                    <i class="icon-tag"></i>
+                </button>
+                <a href="#"  class="tag" title="tag">tag1</a>
+                <a href="#"  class="tag" title="tag">tag2</a>
+                <a href="#"  class="tag" title="tag">tag3</a>
+                </div>
+            </div>
+        </section>
+    </div>                            
+
+    <div class="controlButtons">
+        <a href="#" class="btn btn-default btn-prevNext">
+        <i class="icon-left-open-big"></i>Previous</a>
+        <a href="#" class="btn btn-default btn-prevNext">Next
+        <i class="icon-right-open-big"></i></a>
+    </div>
+
+</section>
