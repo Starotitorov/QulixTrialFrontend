@@ -38,13 +38,15 @@
         </div>
     </div>
 
-    <message message="message" on-remove="messagesListCtrl.removeMessage(message)" ng-repeat="message in messagesListCtrl.messages"></message>            
+    <message
+        message="message"
+        on-remove="removeMessage(message)"
+        ng-repeat="message in messages">
+    </message>
 
-    <div class="controlButtons">
-        <a href="#" class="btn btn-default btn-prevNext">
-        <i class="icon-left-open-big"></i>Previous</a>
-        <a href="#" class="btn btn-default btn-prevNext">Next
-        <i class="icon-right-open-big"></i></a>
+    <div infinite-scroll="getNextPage()"
+        infinite-scroll-disabled="loadingInProgress"
+        infinite-scroll-distance="3">
     </div>
 
 </section>

@@ -1,38 +1,58 @@
 import template from './messages-list.template.html';
 
 class MessagesListController {
-    constructor(messagesService, accountService) {
-        this._messagesService = messagesService;
-        this._accountService = accountService;
+    constructor($scope, $q, messagesService, accountService) {
+        this._init($scope, $q, messagesService, accountService);
+    }
 
-        this._accountService.currentUser()
+    _init($scope, $q, messagesService, accountService) {
+        accountService.currentUser()
             .then(user => {
                 if (user) {
-                    this.getList();
+                    $scope.getNextPage();
                 }
             });
-    }
 
-    getList() {
-        this._messagesService.list()
-            .then(data => {
-                this.messages = [];
+        $scope.getNextPage = () => {
+            if ($scope.messages && !$scope.nextPageToken) {
+                return;
+            }
+            
+            $scope.loadingInProgress = true;
+            let params = {
+                labelIds: 'INBOX',
+                maxResults: 10
+            };
+            if ($scope.nextPageToken) {
+                params.pageToken = $scope.nextPageToken;
+            }
 
-                data.messages.forEach(message => {
-                    this._messagesService.get(message.id)
-                        .then(message => {
-                            this.messages.push(message)
+            messagesService.list(params)
+                .then(data => {
+                    $scope.nextPageToken = data.nextPageToken;
+
+                    $q.all(
+                        data.messages.map(message => {
+                            return messagesService.get(message.id)
+                        })
+                    )
+                        .then(messages => {
+                            if (!$scope.messages) {
+                                $scope.messages = [];
+                            }
+                            Array.prototype.push.apply($scope.messages, messages);
+                            $scope.loadingInProgress = false;
                         });
                 });
-            });
-    }
+        };
 
-    removeMessage(message) {
-        this.messages.splice(this.messages.indexOf(message), 1);
+        $scope.removeMessage = (message) => {
+            $scope.messages.splice($scope.messages.indexOf(message), 1);
+        }
     }
 }
 
-MessagesListController.$inject = ['messagesService', 'accountService'];
+MessagesListController.$inject = ['$scope', '$q', 'messagesService', 'accountService'];
 
 export default class MessagesList {
     constructor() {
@@ -40,9 +60,7 @@ export default class MessagesList {
         this.replace = true;
         this.scope = {};
         this.template = template;
-        this.controller = MessagesListController,
-        this.controllerAs = 'messagesListCtrl',
-        this.bindToController = true;
+        this.controller = MessagesListController;
     }
 
     static createInstance() {
