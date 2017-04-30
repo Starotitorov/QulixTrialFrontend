@@ -5,6 +5,7 @@ import '../styles/app.less';
 
 import account from './account';
 import auth from './auth';
+import commons from './commons';
 import header from './header';
 import main from './main';
 import messages from './messages';
@@ -17,6 +18,7 @@ angular.module('qulixTrialFrontend', [
 
     account,
     auth,
+    commons,
     header,
     main,
     messages

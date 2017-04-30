@@ -515,8 +515,14 @@
         }
       }
  
-      .postsContainer { 
-        .media { 
+      .messagesContainer {
+        .label-no-messages {
+          margin-left: 30px;
+          font-style: italic;
+          text-align: center;
+          color: @gray-light;
+        }
+        .media {
           > .pull-left {
             padding-right: 15px;
           }
@@ -531,6 +537,9 @@
           }
         }
         .media-body {
+          display: block;
+          max-width: 100%;
+          
           .userInfo {
             margin-bottom: 16px;
 

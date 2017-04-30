@@ -1,11 +1,22 @@
 import template from './messages-list.template.html';
 
 class MessagesListController {
-    constructor($scope, $q, messagesService, accountService) {
-        this._init($scope, $q, messagesService, accountService);
+    constructor($scope, $q, $state, $stateParams,
+        messagesService, accountService) {
+        this._init(
+            $scope,
+            $q,
+            $state,
+            $stateParams,
+            messagesService,
+            accountService
+        );
     }
 
-    _init($scope, $q, messagesService, accountService) {
+    _init($scope, $q, $state, $stateParams,
+        messagesService, accountService) {
+        $scope.query = $stateParams.q;
+
         accountService.currentUser()
             .then(user => {
                 if (user) {
@@ -21,7 +32,8 @@ class MessagesListController {
             $scope.loadingInProgress = true;
             let params = {
                 labelIds: 'INBOX',
-                maxResults: 10
+                maxResults: 10,
+                q: $stateParams.q
             };
             if ($scope.nextPageToken) {
                 params.pageToken = $scope.nextPageToken;
@@ -30,6 +42,13 @@ class MessagesListController {
             messagesService.list(params)
                 .then(data => {
                     $scope.nextPageToken = data.nextPageToken;
+                    if (!data.messages) {
+                        if (!$scope.messages) {
+                            $scope.messages = [];
+                        }
+                        $scope.loadingInProgress = false;
+                        return;
+                    }
 
                     $q.all(
                         data.messages.map(message => {
@@ -49,10 +68,21 @@ class MessagesListController {
         $scope.removeMessage = (message) => {
             $scope.messages.splice($scope.messages.indexOf(message), 1);
         }
+
+        $scope.search = (query) => {
+            $state.go('main', { q: query }, { reload: true });
+        }
     }
 }
 
-MessagesListController.$inject = ['$scope', '$q', 'messagesService', 'accountService'];
+MessagesListController.$inject = [
+    '$scope',
+    '$q',
+    '$state',
+    '$stateParams',
+    'messagesService',
+    'accountService'
+];
 
 export default class MessagesList {
     constructor() {

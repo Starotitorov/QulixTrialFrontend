@@ -1,14 +1,7 @@
-<section class="postsContainer">
+<section class="messagesContainer">
     <div class="searchForm row">
         <div class="col-sm-14">
-            <form name="search" action="#" method="get" class="form-inline form-search pull-left">
-                <div class="input-group">
-                    <input class="form-control" type="text" name="search" placeholder="Search...">
-                    <a href="#" class="btn btn-search">
-                    <i class="icon-search"></i>
-                    </a>
-                </div>
-            </form>
+            <search-input query="{{ query }}" on-search-btn-click="search"></search-input>
         </div>
         <div class="options col-sm-10">
             <a href="#" title="Add new item" class="newItem" data-toggle="modal" data-target="#myModal"><i class="icon-plus-small"></i><span>New Item</span></a>
@@ -38,15 +31,18 @@
         </div>
     </div>
 
-    <message
-        message="message"
-        on-remove="removeMessage(message)"
-        ng-repeat="message in messages">
-    </message>
+    <div ng-show="messages">
+        <message
+            message="message"
+            on-remove="removeMessage(message)"
+            ng-repeat="message in messages">
+        </message>
+        <h1 class="label-no-messages" ng-show="messages.length <= 0">No messages :-(</h1>
 
-    <div infinite-scroll="getNextPage()"
-        infinite-scroll-disabled="loadingInProgress"
-        infinite-scroll-distance="3">
+        <div infinite-scroll="getNextPage()"
+            infinite-scroll-disabled="loadingInProgress"
+            infinite-scroll-distance="3">
+        </div>
     </div>
 
 </section>
