@@ -1,0 +1,30 @@
+<div class="newItem">
+    <a href="#" title="Write message" data-toggle="modal" data-target="#modalNewMessage">
+        <i class="icon-plus-small"></i>
+        <span>Write message</span>
+    </a>
+    <div class="modal fade" id="modalNewMessage" tabindex="-1" role="dialog" aria-labelledby="modalNewMessageLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalNewMessageLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="sendMessageForm" ng-submit="writeMessageBtnCtrl.sendMessage()">
+                        <label class="modal-label">To</label>
+                        <input type="text" class="form-control" placeholder="To" required ng-model="writeMessageBtnCtrl.message.headers.to">
+                        <label class="modal-label">Subject</label>
+                        <input type="text" class="form-control" placeholder="Subject" required ng-model="writeMessageBtnCtrl.message.headers.subject">
+                        <label class="modal-label">Text</label>
+                        <textarea class="form-control" rows="3" placeholder="Text" required ng-model="writeMessageBtnCtrl.message.body"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" form="sendMessageForm" class="btn btn-primary" ng-disabled="writeMessageBtnCtrl.sendBtnDisabled">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

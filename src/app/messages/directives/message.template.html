@@ -7,11 +7,11 @@
             <div class="commentsAndTime pull-right">
                 <span><i class="icon-clock"></i>{{ messageCtrl.message.headers.date | date:'medium' }}</span>
             </div>
-            <span class="from">{{ messageCtrl.message.headers.from }}</span>
-            <span>to: {{ messageCtrl.message.headers.to }}</span>
+            <span class="from" ng-show="messageCtrl.message.headers.from">{{ messageCtrl.message.headers.from }}</span>
+            <span ng-show="messageCtrl.message.headers.to">to: {{ messageCtrl.message.headers.to }}</span>
         </div>
         <div class="itemName">
-            <a href="#" class="media-heading" title="Item title">{{ messageCtrl.message.headers.subject }}</a>
+            <a href="#" class="media-heading" ng-show="messageCtrl.message.headers.subject">{{ messageCtrl.message.headers.subject }}</a>
         </div>
         <p ng-bind-html="messageCtrl.message.body"></p>
     </div>

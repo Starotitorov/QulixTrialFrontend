@@ -4,29 +4,7 @@
             <search-input query="{{ query }}" on-search-btn-click="search"></search-input>
         </div>
         <div class="options col-sm-10">
-            <a href="#" title="Add new item" class="newItem" data-toggle="modal" data-target="#myModal"><i class="icon-plus-small"></i><span>New Item</span></a>
-            <!-- Modal window -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Add new item</h4>
-                        </div>
-                        <div class="modal-body">
-                            <label class="modal-label">Item name</label>
-                            <input type="text" class="form-control">
-                            <label class="modal-label">Text</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Modal Window -->
+            <write-message-btn on-save="onNewMessage"></write-message-btn>
             <a href="#" class="btn btn-sm btn-option"><i class="icon-sliders"></i></a>
         </div>
     </div>

@@ -70,6 +70,14 @@ class MessagesListController {
         }
 
         $scope.search = (query) => {
+            $scope._goMainPage(query);
+        }
+
+        $scope.onNewMessage = () => {
+            $scope._goMainPage();
+        }
+
+        $scope._goMainPage = (query) => {
             $state.go('main', { q: query }, { reload: true });
         }
     }

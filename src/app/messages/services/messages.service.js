@@ -1,10 +1,12 @@
 import MessageBuilderDirector from '../utils/message-builder-director';
+import MessageParser from '../utils/message-parser';
 
 export default class MessagesService {
     constructor($q, authHttpService, APP_CONFIG) {
         this._q = $q;
         this._authHttpService = authHttpService;
         this._messageBuilderDirector = new MessageBuilderDirector();
+        this._messageParser = new MessageParser();
 
         this._baseUrl = `${APP_CONFIG.apiPath}/users/me/messages`;
     }
@@ -29,6 +31,16 @@ export default class MessagesService {
 
     delete(id) {
         return this._authHttpService.delete(`${this._baseUrl}/${id}`)
+            .then(response => this._parse(response));
+    }
+
+    send(message) {
+        return this._authHttpService.post(
+            `${this._baseUrl}/send`,
+            {
+                raw: this._messageParser.parseMessage(message)
+            }
+        )
             .then(response => this._parse(response));
     }
 

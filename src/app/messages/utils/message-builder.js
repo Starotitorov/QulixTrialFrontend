@@ -13,12 +13,9 @@ export default class MessageBuilder {
             this._message.headers = {};
         }
 
-        const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);;
-        const header = _.findWhere(
+        const header = _.find(
             this._data.payload.headers,
-            {
-                name: capitalizedName
-            }
+            header => header.name.toLowerCase() === name.toLowerCase()
         );
 
         if (header) {

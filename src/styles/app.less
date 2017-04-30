@@ -472,11 +472,14 @@
             font-family: 'Georgia', serif;
             display: inline-block;
             margin-right: 65px;
-            color: @gray-light;
-            .a-no-line-on-hover;
-            .hover-color(@gray-lighter);
-            @media (max-width: (@screen-sm-min - 1)) {
-              margin-right: 0px;
+
+            a {
+              color: @gray-light;
+              .a-no-line-on-hover;
+              .hover-color(@gray-lighter);
+              @media (max-width: (@screen-sm-min - 1)) {
+                margin-right: 0px;
+              }
             }
             span {
               position: relative;
