@@ -230,7 +230,8 @@
     margin-left: 172px; 
     font: 12px Arial, sans-serif;
     color: @gray-light;
-
+    clear: both;
+    
     @media (max-width: (@screen-sm-min - 1)) {
       width: 100%;
       margin-left: 0;
@@ -386,6 +387,11 @@
     background-color: @main-bg-color;
 
     .mainSection {
+      &:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
 
       background-color: @white;
       border-left: 1px solid #e0e4ed;
