@@ -31,7 +31,7 @@ class MessagesListController {
             
             $scope.loadingInProgress = true;
             let params = {
-                labelIds: 'INBOX',
+                labelIds: $stateParams.labelIds,
                 maxResults: 10,
                 q: $stateParams.q
             };
