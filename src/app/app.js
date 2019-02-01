@@ -5,7 +5,7 @@ import '../styles/app.less';
 
 import account from './account';
 import auth from './auth';
-import commons from './commons';
+import common from './common';
 import header from './header';
 import labels from './labels';
 import main from './main';
@@ -20,7 +20,7 @@ angular.module('qulixTrialFrontend', [
 
     account,
     auth,
-    commons,
+    common,
     header,
     labels,
     main,

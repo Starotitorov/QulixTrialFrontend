@@ -2,6 +2,7 @@
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: __dirname + '/src/app',
@@ -40,9 +41,28 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('bundle.css'),
-        new CopyWebpackPlugin([{
-            from: __dirname + '/src/public'
-        }])
+        new HtmlWebpackPlugin({
+            template: __dirname + '/src/public/index.html',
+            filename: 'index.html',
+            meta: {
+                'google-signin-scope': 'https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.readonly',
+                'google-signin-client_id': process.env.GOOGLE_SIGNIN_CLIENT_ID + '.apps.googleusercontent.com'
+            }
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: __dirname + '/src/public/fonts',
+                to: 'fonts'
+            },
+            {
+                from: __dirname + '/src/public/images',
+                to: 'images'
+            },
+            {
+                from: __dirname + '/src/public/scripts',
+                to: 'scripts'
+            }
+        ])
     ],
     devtool : 'source-map',
     devServer: {
